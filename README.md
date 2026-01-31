@@ -1,26 +1,104 @@
-# Openclaw Starter Kit
+# OpenClaw Starter Kit
 
-A starter template for setting up Openclaw configuration in your projects.
+A starter template for setting up OpenClaw, an AI agent platform with gateway auto-runner functionality.
 
-## Structure
+## Quick Start
+
+### Option 1: Clone as `.openclaw` folder (Recommended)
+
+Clone this repository directly into a `.openclaw` folder in your project:
+
+```bash
+# Navigate to your project root
+cd /path/to/your/project
+
+# Clone directly into .openclaw folder
+git clone https://github.com/sharmasuraj0123/openclaw-starterkit.git .openclaw
+
+# Run setup
+cd .openclaw
+chmod +x setup.sh
+./setup.sh
+```
+
+### Option 2: Clone into existing `.openclaw` folder
+
+If you already have a `.openclaw` folder (must be empty or have no conflicting files):
+
+```bash
+cd /path/to/your/project/.openclaw
+git clone https://github.com/sharmasuraj0123/openclaw-starterkit.git .
+chmod +x setup.sh
+./setup.sh
+```
+
+## Repository Structure
 
 ```
-.openclaw/
-├── config.json          # Main configuration file
+.
+├── setup.sh              # Main setup script (run this first)
+├── gateway.sh            # Gateway auto-runner with crash recovery
+├── config.json           # Main OpenClaw configuration
 ├── agents/
-│   └── default.json     # Default agent configuration
+│   └── default.json      # Default agent settings
 ├── prompts/
-│   └── system.md        # System prompt template
-└── tools/
-    └── example-tool.json # Example custom tool definition
+│   └── system.md         # System prompt template
+├── tools/
+│   └── example-tool.json # Example custom tool definition
+├── CLAUDE.md             # Instructions for Claude Code
+├── AGENTS.md             # Documentation for AI agents
+└── README.md             # This file
 ```
 
-## Getting Started
+## Setup Script
 
-1. Clone this repository
-2. Customize `.openclaw/config.json` with your settings
-3. Modify the system prompt in `.openclaw/prompts/system.md`
-4. Add custom tools in `.openclaw/tools/`
+The `setup.sh` script automates the installation process:
+
+1. Installs the OpenClaw CLI via `curl -fsSL https://openclaw.ai/install.sh | bash`
+2. Sets correct permissions on `gateway.sh`
+3. Starts the gateway auto-runner
+
+```bash
+chmod +x setup.sh
+./setup.sh
+```
+
+## Gateway Management
+
+The `gateway.sh` script manages the OpenClaw gateway with automatic restart on crashes:
+
+```bash
+# Start the gateway (auto-restarts on crash)
+./gateway.sh start
+
+# Stop the gateway
+./gateway.sh stop
+
+# Restart the gateway
+./gateway.sh restart
+
+# Check gateway status
+./gateway.sh status
+
+# View gateway logs
+./gateway.sh logs
+```
+
+### Gateway Configuration
+
+Edit these variables at the top of `gateway.sh`:
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `OPENCLAW_GATEWAY_PORT` | `18789` | Gateway listen port (env var) |
+| `RESTART_DELAY` | `5` | Seconds before restart attempt |
+| `MAX_RESTARTS` | `10` | Max consecutive restarts |
+| `RESTART_WINDOW` | `300` | Seconds of uptime to reset counter |
+
+### Log Files
+
+- Gateway logs: `/tmp/openclaw-gateway.log`
+- PID file: `/tmp/openclaw-gateway.pid`
 
 ## Configuration
 
@@ -29,15 +107,50 @@ A starter template for setting up Openclaw configuration in your projects.
 The main configuration file controls:
 - Model selection and parameters
 - Enabled tools and permissions
-- Hooks for pre/post commit actions
+- Custom tool paths
 
 ### Agents
 
-Define different agent configurations in `.openclaw/agents/` for various use cases.
+Define different agent configurations in `agents/` for various use cases. Each agent can have:
+- Custom model settings
+- Specific system prompts
+- Enabled tool sets
+- Context preferences
+
+### Prompts
+
+Store reusable system prompts in `prompts/`. Reference them from agent configurations.
 
 ### Tools
 
-Add custom tool definitions in `.openclaw/tools/` to extend functionality.
+Add custom tool definitions in `tools/` to extend agent functionality. Follow the JSON schema in `example-tool.json`.
+
+## Manual CLI Installation
+
+If you need to install the OpenClaw CLI separately:
+
+```bash
+curl -fsSL https://openclaw.ai/install.sh | bash
+```
+
+## Troubleshooting
+
+### Permission Denied
+```bash
+chmod +x setup.sh gateway.sh
+```
+
+### Gateway Won't Start
+1. Check if port is in use: `lsof -i :18789`
+2. View logs: `./gateway.sh logs`
+3. Kill orphaned processes: `pkill -f "openclaw gateway"`
+
+### CLI Not Found After Install
+```bash
+export PATH="$HOME/.local/bin:$HOME/.openclaw/bin:$PATH"
+# Or restart your shell
+exec $SHELL
+```
 
 ## License
 
