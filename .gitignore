@@ -20,3 +20,14 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+
+# OpenClaw sensitive files (generated at runtime)
+openclaw.json.bak
+update-check.json
+
+# Memory files (personal data)
+workspace/memory/
+workspace/MEMORY.md
+
+# Agent sessions
+agents/*/sessions/

@@ -4,11 +4,17 @@ A starter template for setting up OpenClaw, an AI agent platform with gateway au
 
 [![Open in XO Workspaces](https://img.shields.io/badge/Open%20in-XO%20Workspaces-blue?style=for-the-badge&logo=data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABILAAASCwAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A)](https://beta.xo.builders)
 
-If you're using XO Workspaces, follow these steps:
+### Getting Started in XO Workspaces
 
 1. **Open Board** - Navigate to your XO Board
 2. **Code Tab** - Click on the Code tab
 3. **Open in IDE** - Click to open in **VS Code** or **Cursor**, depending on your preference
+4. **Run Setup** - In your terminal:
+   ```bash
+   cd ~/.openclaw
+   ./setup.sh
+   ```
+5. Follow the prompts and setup is complete!
 
 > ⚠️ **IMPORTANT NOTE**
 >
@@ -18,7 +24,7 @@ If you're using XO Workspaces, follow these steps:
 
 ---
 
-## Quick Start
+## Quick Start (Local Installation)
 
 ### Option 1: Clone as `.openclaw` folder (Recommended)
 
@@ -54,13 +60,31 @@ chmod +x setup.sh
 .
 ├── setup.sh              # Main setup script (run this first)
 ├── gateway.sh            # Gateway auto-runner with crash recovery
-├── config.json           # Main OpenClaw configuration
+├── openclaw.json         # Main OpenClaw configuration
+├── config.json           # Agent configuration
 ├── agents/
 │   └── default.json      # Default agent settings
 ├── prompts/
 │   └── system.md         # System prompt template
 ├── tools/
 │   └── example-tool.json # Example custom tool definition
+├── canvas/
+│   └── index.html        # Interactive canvas test page
+├── cron/
+│   └── jobs.json         # Scheduled jobs configuration
+├── devices/
+│   ├── paired.json       # Paired devices registry
+│   └── pending.json      # Pending device pairings
+├── identity/
+│   └── device.json       # Device identity (generated)
+├── workspace/
+│   ├── AGENTS.md         # Agent workspace guidelines
+│   ├── BOOTSTRAP.md      # First-run setup guide
+│   ├── HEARTBEAT.md      # Periodic task configuration
+│   ├── IDENTITY.md       # Agent identity template
+│   ├── SOUL.md           # Agent personality/behavior
+│   ├── TOOLS.md          # Local tool notes
+│   └── USER.md           # User information template
 ├── CLAUDE.md             # Instructions for Claude Code
 ├── AGENTS.md             # Documentation for AI agents
 └── README.md             # This file
@@ -118,12 +142,30 @@ Edit these variables at the top of `gateway.sh`:
 
 ## Configuration
 
+### openclaw.json
+
+The main OpenClaw configuration file controls:
+- Gateway settings (port, auth, mode)
+- Agent defaults (concurrency, workspace path)
+- Message handling preferences
+- Skills installation settings
+
 ### config.json
 
-The main configuration file controls:
+Agent-specific configuration for:
 - Model selection and parameters
 - Enabled tools and permissions
 - Custom tool paths
+
+### Workspace
+
+The `workspace/` folder contains agent personality and memory files:
+- **SOUL.md** - Core agent personality and behavior guidelines
+- **IDENTITY.md** - Agent name, vibe, and avatar
+- **USER.md** - Information about the human user
+- **BOOTSTRAP.md** - First-run onboarding guide
+- **HEARTBEAT.md** - Periodic task checklist
+- **TOOLS.md** - Local tool configurations
 
 ### Agents
 
