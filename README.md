@@ -6,7 +6,7 @@ A starter template for setting up OpenClaw, an AI agent platform with gateway au
 
 ### Watch the Demo
 
-<a href="https://www.loom.com/share/225bde59342c4efcb8526e644cc129bd">
+<a href="https://www.loom.com/share/225bde59342c4efcb8526e644cc129bd" target="_blank">
   <img src="https://cdn.loom.com/sessions/thumbnails/225bde59342c4efcb8526e644cc129bd-438076eb7ea3e272-full-play.gif" alt="Watch the demo" width="600">
 </a>
 
@@ -27,7 +27,7 @@ A starter template for setting up OpenClaw, an AI agent platform with gateway au
 >
 > These Sandboxes are designed for **experimentation only** and are set for **automatic shutdown in 24 hours**.
 >
-> If you need your sandbox to keep running beyond this period, please reach out to the [XO team](https://xo.builders).
+> If you need your sandbox to keep running beyond this period, please reach out to the <a href="https://xo.builders" target="_blank">XO team</a>.
 
 ---
 
