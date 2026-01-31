@@ -22,7 +22,7 @@ This will:
 openclaw --version
 
 # Check gateway status
-./workspaces/gateway.sh status
+./gateway.sh status
 ```
 
 ## File Descriptions
@@ -30,15 +30,15 @@ openclaw --version
 | File | Purpose |
 |------|---------|
 | `setup.sh` | Main entry point - installs CLI and starts gateway |
+| `gateway.sh` | Gateway daemon with auto-restart |
 | `config.json` | Core configuration (model, tools, permissions) |
 | `agents/default.json` | Default agent persona and settings |
 | `prompts/system.md` | System prompt template for agents |
 | `tools/example-tool.json` | Example custom tool definition |
-| `workspaces/gateway.sh` | Gateway daemon with auto-restart |
 
 ## Gateway Operations
 
-The gateway is managed via `workspaces/gateway.sh`:
+The gateway is managed via `gateway.sh`:
 
 | Command | Description |
 |---------|-------------|
@@ -50,7 +50,7 @@ The gateway is managed via `workspaces/gateway.sh`:
 
 ### Gateway Configuration
 
-Located at the top of `workspaces/gateway.sh`:
+Located at the top of `gateway.sh`:
 
 ```bash
 GATEWAY_PORT="${OPENCLAW_GATEWAY_PORT:-18789}"  # Default port
@@ -148,12 +148,12 @@ RESTART_WINDOW=300     # Seconds of uptime to reset counter
 ### Permission Denied on Scripts
 ```bash
 chmod +x setup.sh
-chmod +x workspaces/gateway.sh
+chmod +x gateway.sh
 ```
 
 ### Gateway Won't Start
 1. Check if port is in use: `lsof -i :18789`
-2. Check logs: `./workspaces/gateway.sh logs`
+2. Check logs: `./gateway.sh logs`
 3. Kill orphaned processes: `pkill -f "openclaw gateway"`
 
 ### CLI Not Found After Install

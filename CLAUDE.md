@@ -11,6 +11,7 @@ This is the **OpenClaw Starter Kit** - a template repository for setting up and 
 ```
 .
 ├── setup.sh                        # Main setup script (run this first)
+├── gateway.sh                      # Gateway auto-runner script
 ├── CLAUDE.md                       # Instructions for Claude/LLMs
 ├── AGENTS.md                       # Agent configuration documentation
 ├── README.md                       # Project documentation
@@ -19,10 +20,8 @@ This is the **OpenClaw Starter Kit** - a template repository for setting up and 
 │   └── default.json                # Default agent settings
 ├── prompts/
 │   └── system.md                   # System prompt template
-├── tools/
-│   └── example-tool.json           # Custom tool definitions
-└── workspaces/
-    └── gateway.sh                  # Gateway auto-runner script
+└── tools/
+    └── example-tool.json           # Custom tool definitions
 ```
 
 ## Commands
@@ -36,19 +35,19 @@ This is the **OpenClaw Starter Kit** - a template repository for setting up and 
 ### Gateway Management
 ```bash
 # Start the gateway (auto-restarts on crash)
-./workspaces/gateway.sh start
+./gateway.sh start
 
 # Stop the gateway
-./workspaces/gateway.sh stop
+./gateway.sh stop
 
 # Restart the gateway
-./workspaces/gateway.sh restart
+./gateway.sh restart
 
 # Check gateway status
-./workspaces/gateway.sh status
+./gateway.sh status
 
 # View gateway logs
-./workspaces/gateway.sh logs
+./gateway.sh logs
 ```
 
 ### Manual OpenClaw CLI Installation
@@ -88,7 +87,7 @@ curl -fsSL https://openclaw.ai/install.sh | bash
 3. Add the tool to the agent's tools array
 
 ### Modifying Gateway Settings
-Edit the variables at the top of `workspaces/gateway.sh`:
+Edit the variables at the top of `gateway.sh`:
 - `RESTART_DELAY` - Seconds between restart attempts
 - `MAX_RESTARTS` - Maximum consecutive restarts before giving up
 - `RESTART_WINDOW` - Seconds of uptime to reset restart counter
