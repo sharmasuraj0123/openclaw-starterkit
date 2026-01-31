@@ -12,15 +12,16 @@ A starter template for setting up OpenClaw, an AI agent platform with gateway au
 
 ### Getting Started in XO Workspaces
 
-1. **Open Board** - Navigate to your XO Board
-2. **Code Tab** - Click on the Code tab
-3. **Open in IDE** - Click to open in **VS Code** or **Cursor**, depending on your preference
-4. **Run Setup** - In your terminal:
+1. **Visit XO** - Go to <a href="https://beta.xo.builders" target="_blank">https://beta.xo.builders</a>
+2. **Open Board** - Navigate to your XO Board
+3. **Code Tab** - Click on the Code tab
+4. **Open in IDE** - Click to open in **VS Code** or **Cursor**, depending on your preference
+5. **Run Setup** - In your terminal:
    ```bash
    cd ~/.openclaw
    ./setup.sh
    ```
-5. Follow the prompts and setup is complete!
+6. Follow the prompts and setup is complete!
 
 > ⚠️ **IMPORTANT NOTE**
 >
