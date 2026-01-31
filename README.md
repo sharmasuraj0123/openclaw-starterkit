@@ -6,7 +6,9 @@ A starter template for setting up OpenClaw, an AI agent platform with gateway au
 
 ### Watch the Demo
 
-[![Watch the video](https://cdn.loom.com/sessions/thumbnails/225bde59342c4efcb8526e644cc129bd-with-play.gif)](https://www.loom.com/share/225bde59342c4efcb8526e644cc129bd)
+<a href="https://www.loom.com/share/225bde59342c4efcb8526e644cc129bd">
+  <img src="https://cdn.loom.com/sessions/thumbnails/225bde59342c4efcb8526e644cc129bd-00001.jpg" alt="Watch the demo" width="600">
+</a>
 
 ### Getting Started in XO Workspaces
 
