@@ -8,7 +8,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-GATEWAY_SCRIPT="$SCRIPT_DIR/.openclaw/workspaces/gateway.sh"
+GATEWAY_SCRIPT="$SCRIPT_DIR/workspaces/gateway.sh"
 
 # Colors
 RED='\033[0;31m'

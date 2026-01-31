@@ -22,7 +22,7 @@ This will:
 openclaw --version
 
 # Check gateway status
-./.openclaw/workspaces/gateway.sh status
+./workspaces/gateway.sh status
 ```
 
 ## File Descriptions
@@ -30,15 +30,15 @@ openclaw --version
 | File | Purpose |
 |------|---------|
 | `setup.sh` | Main entry point - installs CLI and starts gateway |
-| `.openclaw/config.json` | Core configuration (model, tools, permissions) |
-| `.openclaw/agents/default.json` | Default agent persona and settings |
-| `.openclaw/prompts/system.md` | System prompt template for agents |
-| `.openclaw/tools/example-tool.json` | Example custom tool definition |
-| `.openclaw/workspaces/gateway.sh` | Gateway daemon with auto-restart |
+| `config.json` | Core configuration (model, tools, permissions) |
+| `agents/default.json` | Default agent persona and settings |
+| `prompts/system.md` | System prompt template for agents |
+| `tools/example-tool.json` | Example custom tool definition |
+| `workspaces/gateway.sh` | Gateway daemon with auto-restart |
 
 ## Gateway Operations
 
-The gateway is managed via `.openclaw/workspaces/gateway.sh`:
+The gateway is managed via `workspaces/gateway.sh`:
 
 | Command | Description |
 |---------|-------------|
@@ -50,7 +50,7 @@ The gateway is managed via `.openclaw/workspaces/gateway.sh`:
 
 ### Gateway Configuration
 
-Located at the top of `gateway.sh`:
+Located at the top of `workspaces/gateway.sh`:
 
 ```bash
 GATEWAY_PORT="${OPENCLAW_GATEWAY_PORT:-18789}"  # Default port
@@ -65,7 +65,7 @@ RESTART_WINDOW=300     # Seconds of uptime to reset counter
 
 ## Agent Configuration Schema
 
-### `.openclaw/config.json`
+### `config.json`
 ```json
 {
   "version": "1.0",
@@ -83,7 +83,7 @@ RESTART_WINDOW=300     # Seconds of uptime to reset counter
 }
 ```
 
-### `.openclaw/agents/default.json`
+### `agents/default.json`
 ```json
 {
   "name": "default",
@@ -101,7 +101,7 @@ RESTART_WINDOW=300     # Seconds of uptime to reset counter
 
 ## Creating Custom Agents
 
-1. Create a new file in `.openclaw/agents/`:
+1. Create a new file in `agents/`:
 ```json
 {
   "name": "my-agent",
@@ -117,13 +117,13 @@ RESTART_WINDOW=300     # Seconds of uptime to reset counter
 }
 ```
 
-2. Create the corresponding prompt in `.openclaw/prompts/my-prompt.md`
+2. Create the corresponding prompt in `prompts/my-prompt.md`
 
 3. Reference the agent in your OpenClaw commands
 
 ## Creating Custom Tools
 
-1. Create a new file in `.openclaw/tools/`:
+1. Create a new file in `tools/`:
 ```json
 {
   "name": "my-tool",
@@ -148,12 +148,12 @@ RESTART_WINDOW=300     # Seconds of uptime to reset counter
 ### Permission Denied on Scripts
 ```bash
 chmod +x setup.sh
-chmod +x .openclaw/workspaces/gateway.sh
+chmod +x workspaces/gateway.sh
 ```
 
 ### Gateway Won't Start
 1. Check if port is in use: `lsof -i :18789`
-2. Check logs: `./.openclaw/workspaces/gateway.sh logs`
+2. Check logs: `./workspaces/gateway.sh logs`
 3. Kill orphaned processes: `pkill -f "openclaw gateway"`
 
 ### CLI Not Found After Install
