@@ -1,0 +1,31 @@
+{
+  "$schema": "https://openclaw.dev/schemas/config.json",
+  "version": "1.0.0",
+  "name": "openclaw-starterkit",
+  "description": "A starter kit for Openclaw configuration",
+  "settings": {
+    "model": "claude-sonnet-4-20250514",
+    "maxTokens": 4096,
+    "temperature": 0.7
+  },
+  "tools": {
+    "enabled": true,
+    "allowedTools": [
+      "read",
+      "write",
+      "edit",
+      "bash",
+      "glob",
+      "grep"
+    ]
+  },
+  "permissions": {
+    "allowFileOperations": true,
+    "allowBashCommands": true,
+    "allowNetworkRequests": false
+  },
+  "hooks": {
+    "preCommit": [],
+    "postCommit": []
+  }
+}

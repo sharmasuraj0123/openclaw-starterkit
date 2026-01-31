@@ -1,0 +1,12 @@
+{
+  "name": "default",
+  "description": "Default agent configuration",
+  "model": "claude-sonnet-4-20250514",
+  "systemPrompt": "../prompts/system.md",
+  "tools": [],
+  "context": {
+    "maxContextLength": 100000,
+    "includeFileTree": true,
+    "includeGitStatus": true
+  }
+}
