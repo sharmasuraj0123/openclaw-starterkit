@@ -2,6 +2,22 @@
 
 A starter template for setting up OpenClaw, an AI agent platform with gateway auto-runner functionality.
 
+## Open in <img src="https://xo.builders/favicon.ico" alt="XO" height="20"/> Workspaces
+
+If you're using XO Workspaces, follow these steps:
+
+1. **Open Board** - Navigate to your XO Board
+2. **Code Tab** - Click on the Code tab
+3. **Open in IDE** - Click to open in **VS Code** or **Cursor**, depending on your preference
+
+> ⚠️ **IMPORTANT NOTE**
+>
+> These Sandboxes are designed for **experimentation only** and are set for **automatic shutdown in 24 hours**.
+>
+> If you need your sandbox to keep running beyond this period, please reach out to the [XO team](https://xo.builders).
+
+---
+
 ## Quick Start
 
 ### Option 1: Clone as `.openclaw` folder (Recommended)
